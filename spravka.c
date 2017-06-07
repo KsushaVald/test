@@ -47,10 +47,12 @@ while(1){
   if(menu==2){
    fd=open("spisok2.txt",O_WRONLY);
    struct stroka a;
-   scanf("%s", &a.name);
+   printf("Enter Name: ");
+   scanf("%s", a.name);
+   printf("Enter Namber: ");
    scanf("%d", &a.n);
    a.name[4]='\0';
-   lseek(fd,sizeof(struct stroka)*l,SEEK_SET);
+   p=lseek(fd,sizeof(struct stroka)*l,SEEK_SET);
    write(fd,a.name, sizeof(char[4]));
    write(fd,&a.n,sizeof(int));
    l++;
